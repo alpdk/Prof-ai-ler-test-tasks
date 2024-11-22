@@ -6,13 +6,18 @@
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.alpdk.profailertesttasks.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.github.alpdk.profailertesttasks.task2.RunPythonScriptAction"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.alpdk.profailertesttasks.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action
+                id="RunPythonScriptAction"
+                class="com.github.alpdk.profailertesttasks.task2.RunPythonScriptAction"
+                text="Calculate words length"
+                description="Executes a Python script with selected text as input">
+            <add-to-group group-id="EditorPopupMenu" anchor="last" />
+        </action>
+
+    </actions>
 </idea-plugin>

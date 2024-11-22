@@ -133,6 +133,12 @@ tasks {
     publishPlugin {
         dependsOn(patchChangelog)
     }
+
+    processResources {
+        from(sourceSets.main.get().resources.srcDirs) {
+            include("../.") // Include all files in resources
+        }
+    }
 }
 
 intellijPlatformTesting {
